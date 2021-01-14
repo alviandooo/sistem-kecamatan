@@ -7,7 +7,7 @@ Surat Keterangan Belum Menikah
 
 <div class="col-md-12" style="margin-top:20px;">
     
-    <div class="col-md-12" style="margin-left:22%;">
+    <div class="col-md-12" style="margin-left:22%;" >
         <h5 style="text-decoration:underline;margin-right:60px;">Surat Keterangan Belum Menikah</h5>
         <p style="font-family:Arial;margin-top:-15px;margin-right:60px;font-size:12pt;">Nomor :</p>
     </div>
@@ -19,7 +19,7 @@ Surat Keterangan Belum Menikah
     <div style="margin-left:20px;">
         <table class="" style="font-family:Arial;">
             <tr>
-                <td><p>Nama</p></td>
+                <td><p>Nama </p></td>
                 <td><p style="margin-left:20px;margin-right:20px;">:</p></td>
                 <td><p>{{$data[0]->nama}}</p></td>
             </tr>
