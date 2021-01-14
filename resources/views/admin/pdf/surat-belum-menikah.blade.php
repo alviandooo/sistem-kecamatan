@@ -19,7 +19,7 @@ Surat Keterangan Belum Menikah
     <div style="margin-left:20px;">
         <table class="" style="font-family:Arial;">
             <tr>
-                <td><p>Nama </p></td>
+                <td><p>Nama</p></td>
                 <td><p style="margin-left:20px;margin-right:20px;">:</p></td>
                 <td><p>{{$data[0]->nama}}</p></td>
             </tr>
