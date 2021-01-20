@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('/pdf', function ()
 {
-    $pdf = PDF::loadview('admin.pdf.surat-keterangan');
+    $pdf = PDF::loadview('admin.pdf.surat-menikah')->setPaper('legal', 'potrait');
 	return $pdf->stream();
 });
 

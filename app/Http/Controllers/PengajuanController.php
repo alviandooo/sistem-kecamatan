@@ -149,10 +149,12 @@ class PengajuanController extends Controller
 
     public function cetakpdf(Request $r)
     {
+        if($r->bermaksud){
 
-        DB::table('pengajuans')
-              ->where('id', $r->id_pdf)
-              ->update(['bermaksud' => $r->bermaksud]);
+            DB::table('pengajuans')
+            ->where('id', $r->id_pdf)
+            ->update(['bermaksud' => $r->bermaksud]);
+        }
 
         $ttd = User::find($r->ttd);
         $data = DB::table('pengajuans')
@@ -162,7 +164,7 @@ class PengajuanController extends Controller
         ->get();
 
         if($data[0]->jenis_pelayanan == 4){
-            $pdf = PDF::loadview('admin.pdf.surat-menikah', ["ttd" => $ttd,"data" => $data]);
+            $pdf = PDF::loadview('admin.pdf.surat-menikah', ["ttd" => $ttd,"data" => $data])->setPaper('legal', 'potrait');
         }else{
             $pdf = PDF::loadview('admin.pdf.surat-keterangan', ["ttd" => $ttd,"data" => $data]);
         }

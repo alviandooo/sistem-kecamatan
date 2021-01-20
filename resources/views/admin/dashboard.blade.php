@@ -114,6 +114,8 @@
 @include('admin.pengajuan.form-add-pengajuan')
 @include('admin.pengajuan.form-edit-pengajuan')
 @include('admin.pengajuan.form-ttd-pdf')
+@include('admin.pengajuan.form-ttd-menikah-pdf')
+
 
 @endsection
 
@@ -198,9 +200,169 @@
             }
         });
 
+        $('select#select2niksuami').select2({
+            allowClear: true,
+            dropdownParent: $("#modal-ttd-menikah-pdf"),
+            placeholder: 'Masukkan NIK',
+            minimumInputLength: 1,
+            ajax: {
+            url: '{{route("data.select2")}}',
+            dataType: 'json',
+            data: function (params) {
+                return {
+                q: $.trim(params.term),
+                page: params.page || 1
+                };
+            },
+            processResults: function (data) {
+                data.page = data.page || 1;
+                return {
+                results: data.items.map(function (item) {
+                    return {
+                    id: item.nik,
+                    text: item.nik
+                    };
+                }),
+                pagination: {
+                    more: data.pagination
+                }
+                }
+            },
+            cache: true
+            }
+        });
+
+        $('select#select2nikistri').select2({
+            allowClear: true,
+            dropdownParent: $("#modal-ttd-menikah-pdf"),
+            placeholder: 'Masukkan NIK',
+            minimumInputLength: 1,
+            ajax: {
+            url: '{{route("data.select2")}}',
+            dataType: 'json',
+            data: function (params) {
+                return {
+                q: $.trim(params.term),
+                page: params.page || 1
+                };
+            },
+            processResults: function (data) {
+                data.page = data.page || 1;
+                return {
+                results: data.items.map(function (item) {
+                    return {
+                    id: item.nik,
+                    text: item.nik
+                    };
+                }),
+                pagination: {
+                    more: data.pagination
+                }
+                }
+            },
+            cache: true
+            }
+        });
+
+        $('select#select2nikayah').select2({
+            allowClear: true,
+            dropdownParent: $("#modal-ttd-menikah-pdf"),
+            placeholder: 'Masukkan NIK',
+            minimumInputLength: 1,
+            ajax: {
+            url: '{{route("data.select2")}}',
+            dataType: 'json',
+            data: function (params) {
+                return {
+                q: $.trim(params.term),
+                page: params.page || 1
+                };
+            },
+            processResults: function (data) {
+                data.page = data.page || 1;
+                return {
+                results: data.items.map(function (item) {
+                    return {
+                    id: item.nik,
+                    text: item.nik
+                    };
+                }),
+                pagination: {
+                    more: data.pagination
+                }
+                }
+            },
+            cache: true
+            }
+        });
+
+        $('select#select2nikibu').select2({
+            allowClear: true,
+            dropdownParent: $("#modal-ttd-menikah-pdf"),
+            placeholder: 'Masukkan NIK',
+            minimumInputLength: 1,
+            ajax: {
+            url: '{{route("data.select2")}}',
+            dataType: 'json',
+            data: function (params) {
+                return {
+                q: $.trim(params.term),
+                page: params.page || 1
+                };
+            },
+            processResults: function (data) {
+                data.page = data.page || 1;
+                return {
+                results: data.items.map(function (item) {
+                    return {
+                    id: item.nik,
+                    text: item.nik
+                    };
+                }),
+                pagination: {
+                    more: data.pagination
+                }
+                }
+            },
+            cache: true
+            }
+        });
+
         $('select#select2ttd').select2({
             allowClear: true,
             dropdownParent: $("#modal-ttd-pdf"),
+            placeholder: 'Pilih Penanda Tangan',
+            minimumInputLength: 1,
+            ajax: {
+            url: '{{route("users.select2")}}',
+            dataType: 'json',
+            data: function (params) {
+                return {
+                q: $.trim(params.term),
+                page: params.page || 1
+                };
+            },
+            processResults: function (data) {
+                data.page = data.page || 1;
+                return {
+                results: data.items.map(function (item) {
+                    return {
+                    id: item.id,
+                    text: item.name
+                    };
+                }),
+                pagination: {
+                    more: data.pagination
+                }
+                }
+            },
+            cache: true
+            }
+        });
+
+        $('select#select2ttdmenikah').select2({
+            allowClear: true,
+            dropdownParent: $("#modal-ttd-menikah-pdf"),
             placeholder: 'Pilih Penanda Tangan',
             minimumInputLength: 1,
             ajax: {
@@ -241,8 +403,13 @@
         });
 
         $('#table-pengajuan tbody').on('click', '#btn-print-pengajuan', function () {
-            $('#modal-ttd-pdf').modal('show');
-            $("#id-pdf").val(tb.row($(this).parents('tr')).data().id);
+            if(tb.row($(this).parents('tr')).data().jenis_pelayanan != "Surat Menikah"){
+                $('#modal-ttd-pdf').modal('show');
+                $("#id-pdf").val(tb.row($(this).parents('tr')).data().id);
+            }else{
+                $('#modal-ttd-menikah-pdf').modal('show');
+                $("#id-pdf-menikah").val(tb.row($(this).parents('tr')).data().id);
+            }
             // $("#nik-edit").val(tb.row($(this).parents('tr')).data().nik);
             // $("#tanggal_pengajuan_edit").val(tb.row($(this).parents('tr')).data().tanggal_pengajuan);
             // $("#jenis-pelayanan-edit").val(tb.row($(this).parents('tr')).data().jenis_pelayanan);

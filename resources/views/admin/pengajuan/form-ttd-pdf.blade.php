@@ -26,7 +26,7 @@
       </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-            <button id="btn-ubah-pengajuan" type="submit" class="btn btn-primary">Cetak</button>
+            <button id="btn-cetak-pengajuan" type="submit" class="btn btn-primary">Cetak</button>
         </div>
         </form>
     </div>
