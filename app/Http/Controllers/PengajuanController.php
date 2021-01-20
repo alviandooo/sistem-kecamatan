@@ -10,6 +10,7 @@ use Auth;
 use Hash;
 use PDF;
 use App\User;
+use App\Data;
 
 class PengajuanController extends Controller
 {
@@ -163,8 +164,21 @@ class PengajuanController extends Controller
         ->where('pengajuans.id',$r->id_pdf)
         ->get();
 
+        if($r->niksuami){
+            $suami = Data::where('nik',$r->niksuami)->first();
+        }
+        if($r->nikistri){
+            $istri = Data::where('nik',$r->nikistri)->first();
+        }
+        if($r->nikayah){
+            $ayah = Data::where('nik',$r->nikayah)->first();
+        }
+        if($r->nikibu){
+            $ibu = Data::where('nik',$r->nikibu)->first();
+        }
+
         if($data[0]->jenis_pelayanan == 4){
-            $pdf = PDF::loadview('admin.pdf.surat-menikah', ["ttd" => $ttd,"data" => $data])->setPaper('legal', 'potrait');
+            $pdf = PDF::loadview('admin.pdf.surat-menikah', ["ttd" => $ttd,"data" => $data,"suami"=>$suami,"istri"=>$istri,"ayah"=>$ayah,"ibu"=>$ibu])->setPaper('legal', 'potrait');
         }else{
             $pdf = PDF::loadview('admin.pdf.surat-keterangan', ["ttd" => $ttd,"data" => $data]);
         }

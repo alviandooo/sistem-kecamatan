@@ -37,31 +37,41 @@
         A. Calon Suami
         <table style="margin-left:30px">
             <tr>
-                <td>1.&nbsp;&nbsp;</td><td>Nama Lengkap dan Alias</td><td>&nbsp;&nbsp;:&nbsp;&nbsp;</td><td> </td><td></td>
+                <td>1.&nbsp;&nbsp;</td><td>Nama Lengkap dan Alias</td><td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                <td>{{$suami->nama}}</td>
+                <td></td>
             </tr>
             <tr>
-                <td style="width:1%;white-space: nowrap;">2.&nbsp;&nbsp;</td><td style="width:1%;white-space: nowrap;">Bin</td><td style="width:1%;white-space: nowrap;">&nbsp;&nbsp;:&nbsp;&nbsp;</td><td></td><td></td>
+                <td style="width:1%;white-space: nowrap;">2.&nbsp;&nbsp;</td><td style="width:1%;white-space: nowrap;">Bin</td><td style="width:1%;white-space: nowrap;">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                <td>{{$suami->bin}}</td><td></td>
             </tr>
             <tr>
-                <td>3.&nbsp;&nbsp;</td><td>Nomor Induk Kependudukan (NIK)</td><td>&nbsp;&nbsp;:&nbsp;&nbsp;</td><td></td><td></td>
+                <td>3.&nbsp;&nbsp;</td><td>Nomor Induk Kependudukan (NIK)</td><td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                <td>{{$suami->nik}}</td><td></td>
             </tr>
             <tr>
-                <td>4.&nbsp;&nbsp;</td><td>Tempat dan Tanggal Lahir</td><td>&nbsp;&nbsp;:&nbsp;&nbsp;</td><td></td><td></td>
+                <td>4.&nbsp;&nbsp;</td><td>Tempat dan Tanggal Lahir</td><td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                <td>{{$suami->tempat_lahir}},{{$suami->tanggal_lahir}}</td><td></td>
             </tr>
             <tr>
-                <td>5.&nbsp;&nbsp;</td><td>Kewarganegaraan</td><td>&nbsp;&nbsp;:&nbsp;&nbsp;</td><td></td><td></td>
+                <td>5.&nbsp;&nbsp;</td><td>Kewarganegaraan</td><td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                <td>{{$suami->kewarganegaraan}}</td><td></td>
             </tr>
             <tr>
-                <td>6.&nbsp;&nbsp;</td><td>Jenis Kelamin</td><td>&nbsp;&nbsp;:&nbsp;&nbsp;</td><td></td><td></td>
+                <td>6.&nbsp;&nbsp;</td><td>Jenis Kelamin</td><td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                <td>{{$suami->jenis_kelamin}}</td><td></td>
             </tr>
             <tr>
-                <td>7.&nbsp;&nbsp;</td><td>Agama</td><td>&nbsp;&nbsp;:&nbsp;&nbsp;</td><td></td><td></td>
+                <td>7.&nbsp;&nbsp;</td><td>Agama</td><td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                <td>{{$suami->agama}}</td><td></td>
             </tr>
             <tr>
-                <td>8.&nbsp;&nbsp;</td><td>Pekerjaan</td><td>&nbsp;&nbsp;:&nbsp;&nbsp;</td><td></td><td></td>
+                <td>8.&nbsp;&nbsp;</td><td>Pekerjaan</td><td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                <td>{{$suami->pekerjaan}}</td><td></td>
             </tr>
             <tr>
-                <td style="vertical-align: top;">9.&nbsp;&nbsp;</td><td style="vertical-align: top;">Alamat</td><td style="vertical-align: top;">&nbsp;&nbsp;:&nbsp;&nbsp;</td><td></td><td></td>
+                <td style="vertical-align: top;">9.&nbsp;&nbsp;</td><td style="vertical-align: top;">Alamat</td><td style="vertical-align: top;">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                <td>{{$suami->alamat}}</td><td></td>
             </tr>
         </table>
         <br>
