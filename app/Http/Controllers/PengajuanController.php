@@ -27,7 +27,7 @@ class PengajuanController extends Controller
     {
         $d = DB::table('pengajuans')
         ->leftjoin('pelayanan','pengajuans.jenis_pelayanan','=','pelayanan.id')
-        ->select('pengajuans.*','pelayanan.*')
+        ->select('pengajuans.*','pelayanan.*','pengajuans.id')
         ->get();
         return Datatables::of($d)->make(true);
     }
@@ -63,7 +63,7 @@ class PengajuanController extends Controller
             $d->no_pengajuan = $nopengajuan;
             $d->tanggal_pengajuan = $r->tanggal_pengajuan;
             $d->jenis_pelayanan = $r->jenis_pelayanan;
-            $d->status_pengajuan = 0;
+            $d->status_pengajuan = 1;
             $d->save();
         }
 
@@ -109,16 +109,20 @@ class PengajuanController extends Controller
         if($r->type == 1){
             // approved pengajuan
 
-            if(Auth::user()->role == 2){
+            if(Auth::user()->role == 1){
                 $p->status_pengajuan = 1;
-            }else if(Auth::user()->role == 3){
+            }else if(Auth::user()->role == 2){
                 $p->status_pengajuan = 2;
+            }else if(Auth::user()->role == 3){
+                $p->status_pengajuan = 3;
+            }else if(Auth::user()->role == 4){
+                $p->status_pengajuan = 4;
             }
 
         }else if($r->type == 3){
             // pengajuan ditolak
 
-            $p->status_pengajuan = 3;
+            $p->status_pengajuan = 0;
 
         }else{
             // ubah data biasa
@@ -145,6 +149,11 @@ class PengajuanController extends Controller
 
     public function cetakpdf(Request $r)
     {
+
+        DB::table('pengajuans')
+              ->where('id', $r->id_pdf)
+              ->update(['bermaksud' => $r->bermaksud]);
+
         $ttd = User::find($r->ttd);
         $data = DB::table('pengajuans')
         ->leftJoin('data', 'pengajuans.nik','=','data.nik')
@@ -152,14 +161,10 @@ class PengajuanController extends Controller
         ->where('pengajuans.id',$r->id_pdf)
         ->get();
 
-        $d = [];
-        $d['ttd'] = $ttd;
-        $d['data'] = $data;
-        // dd($d);
-        if($data[0]->jenis_pelayanan == 0){
-            $pdf = PDF::loadview('admin.pdf.surat-belum-menikah', ["ttd" => $ttd,"data" => $data]);
+        if($data[0]->jenis_pelayanan == 4){
+            $pdf = PDF::loadview('admin.pdf.surat-menikah', ["ttd" => $ttd,"data" => $data]);
         }else{
-            $pdf = PDF::loadview('layouts.kopsurat');
+            $pdf = PDF::loadview('admin.pdf.surat-keterangan', ["ttd" => $ttd,"data" => $data]);
         }
         return $pdf->stream();
     }

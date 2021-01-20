@@ -132,7 +132,7 @@
                 {data: 'id',name:'id',visible:false,searchable:false},
                 {data: '',name:'',orderable: false, searchable: false,
                     render:function(a,b,c,d){
-                        if(c.status_pengajuan == 2){
+                        if(c.status_pengajuan == 4){
                             return '<div class="btn-group"><button class="btn btn-secondary btn-sm" id="btn-edit-pengajuan"><i class="bi bi-pencil-square"></i></button><button class="btn btn-success btn-sm" id="btn-print-pengajuan"><i class="bi bi-pencil-square"></i></button></div>';
                         }else{
                             return '<div class="btn-group"><button class="btn btn-secondary btn-sm" id="btn-edit-pengajuan"><i class="bi bi-pencil-square"></i></button></div>';
@@ -141,13 +141,17 @@
                 },
                 {data: 'status_pengajuan',name:'status_pengajuan', 
                     render:function(a,b,c,d){
-                        if(c.status_pengajuan == 0){
+                        if(c.status_pengajuan == 1){
                             return 'Waiting';
                         }else if(c.status_pengajuan == 1){
                             return 'Acc 1';
                         }else if(c.status_pengajuan == 2){
                             return 'Acc 2';
                         }else if(c.status_pengajuan == 3){
+                            return 'Acc 3';
+                        }else if(c.status_pengajuan == 4){
+                            return 'Diterima';
+                        }else if(c.status_pengajuan == 0){
                             return 'Ditolak';
                         }
                     }
@@ -228,6 +232,7 @@
 
         $('#table-pengajuan tbody').on('click', '#btn-edit-pengajuan', function () {
             $('#modal-edit-pengajuan').modal('show');
+            console.log(tb.row($(this).parents('tr')).data().id);
             $("#id-pengajuan").val(tb.row($(this).parents('tr')).data().id);
             $("#nik-edit").val(tb.row($(this).parents('tr')).data().nik);
             $("#tanggal_pengajuan_edit").val(tb.row($(this).parents('tr')).data().tanggal_pengajuan);

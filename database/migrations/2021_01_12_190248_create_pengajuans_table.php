@@ -19,6 +19,7 @@ class CreatePengajuansTable extends Migration
             $table->string('nik');
             $table->string('tanggal_pengajuan');
             $table->string('jenis_pelayanan');
+            $table->longText('bermaksud')->nullable();
             $table->string('status_pengajuan');
             $table->timestamps();
         });

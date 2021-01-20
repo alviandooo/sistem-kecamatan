@@ -73,7 +73,8 @@ class UsersController extends Controller
             $users->email = $request->email;
             $users->jabatan = $jabatan;
             $users->role = $request->jabatan;
-            $users->password = Hash::make($request->password);;
+            $users->password = Hash::make($request->password);
+            $users->nip = $request->nip;
             $users->save();
        
             return response()->json([

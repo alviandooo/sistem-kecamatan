@@ -18,6 +18,10 @@
                 <input type="text" class="form-control" id="nama" name="nama" aria-describedby="nama" placeholder="Nama">
             </div>
             <div class="form-group">
+                <label for="NIP">NIP :</label>
+                <input type="text" class="form-control" id="nip" name="nip" aria-describedby="nip" placeholder="NIP">
+            </div>
+            <div class="form-group">
                 <label for="Email">Email :</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Email">
             </div>

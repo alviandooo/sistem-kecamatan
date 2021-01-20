@@ -26,9 +26,9 @@ class HomeController extends Controller
     public function index()
     {
         $data = Pengajuan::all();
-        $pditolak = DB::table('pengajuans')->where('status_pengajuan',3)->count();
-        $pditerima = DB::table('pengajuans')->where('status_pengajuan',2)->count();
-        $pdipending = DB::table('pengajuans')->whereIn('status_pengajuan',[1,0])->count();
+        $pditolak = DB::table('pengajuans')->where('status_pengajuan',0)->count();
+        $pditerima = DB::table('pengajuans')->where('status_pengajuan',4)->count();
+        $pdipending = DB::table('pengajuans')->whereIn('status_pengajuan',[1,2,3])->count();
 
         return view('admin.dashboard', compact(['pditerima','pdipending','pditolak']));
     }

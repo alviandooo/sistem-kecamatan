@@ -72,21 +72,7 @@
                 },
                 {data: 'nik',name:'nik'},
                 {data: 'nama',name:'nama'},
-                {data: 'agama',name:'agama',
-                    render:function(a,b,c,d){
-                        if(c.agama == 0){
-                            return 'Lainnya';
-                        }else if(c.agama == 1){
-                            return 'Islam';
-                        }else if(c.agama == 2){
-                            return 'Kristen';
-                        }else if(c.agama == 3){
-                            return 'Hindu';
-                        }else if(c.agama == 4){
-                            return 'Budha';
-                        }
-                    }
-                },
+                {data: 'agama',name:'agama'},
                 {data: 'pekerjaan',name:'pekerjaan'},
             ] 
             

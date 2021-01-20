@@ -39,8 +39,8 @@
                     <label for="jenis_kelamin">Jenis Kelamin</label>
                     <select id="edit-jenis_kelamin" name="jenis_kelamin" class="form-control">
                         <option selected>--Pilih--</option>
-                        <option value="1">Laki-laki</option>
-                        <option value="2">Perempuan</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">
@@ -53,13 +53,13 @@
                 <div class="form-group col-md-6">
                     <label for="agama">Agama</label>
                     <select id="edit-agama" name="agama" class="form-control">
-                    <option selected>--Pilih--</option>
-                    <option value="1">Islam</option>
-                    <option value="2">Kristen</option>
-                    <option value="3">Hindu</option>
-                    <option value="4">Budha</option>
-                    <option value="5">Konghucu</option>
-                    <option value="6">Lainnya</option>
+                        <option selected>--Pilih--</option>
+                        <option value="Islam">Islam</option>
+                        <option value="Kristen">Kristen</option>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Budha">Budha</option>
+                        <option value="Konghucu">Konghucu</option>
+                        <option value="Lainnya">Lainnya</option>
                 </select>
                 </div>
                 <div class="form-group col-md-6">
