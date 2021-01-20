@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.kopsurat');
+    return redirect()->route('home');
 });
 
 Route::get('/pdf', function ()
 {
-    $pdf = PDF::loadview('admin.pdf.surat-belum-menikah');
+    $pdf = PDF::loadview('admin.pdf.surat-keterangan');
 	return $pdf->stream();
 });
 

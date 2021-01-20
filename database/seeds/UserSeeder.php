@@ -20,26 +20,34 @@ class UserSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'name' => 'Staff Administrasi',
+            'name' => 'Operator',
             'role' => 1,
-            'email' => 'administrasi@gmail.com',
-            'jabatan' => 'Staff Administrasi',
+            'email' => 'operator@gmail.com',
+            'jabatan' => 'Operator',
             'password' => Hash::make('secret'),
         ]);
 
         DB::table('users')->insert([
-            'name' => 'Sekretaris Camat',
+            'name' => 'Kasi',
             'role' => 2,
-            'email' => 'sekcam@gmail.com',
-            'jabatan' => 'Sekretaris Camat',
+            'email' => 'kasi@gmail.com',
+            'jabatan' => 'Kasi',
             'password' => Hash::make('secret'),
         ]);
 
         DB::table('users')->insert([
-            'name' => 'Kepala Camat',
+            'name' => 'Sekretaris Lurah',
             'role' => 3,
-            'email' => 'kepcam@gmail.com',
-            'jabatan' => 'Kepala Camat',
+            'email' => 'seklur@gmail.com',
+            'jabatan' => 'Sekretaris Lurah',
+            'password' => Hash::make('secret'),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Lurah',
+            'role' => 4,
+            'email' => 'lurah@gmail.com',
+            'jabatan' => 'Lurah',
             'password' => Hash::make('secret'),
         ]);
     }

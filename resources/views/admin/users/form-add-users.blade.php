@@ -28,9 +28,10 @@
             <div class="form-group">
                 <label for="Jabatan">Jabatan :</label>
                 <select name="jabatan" id="jabatan" class="form-control">
-                    <option value="3">Kepala Camat</option>
-                    <option value="2">Sekretaris Camat</option>
-                    <option value="1">Staff Administrasi</option>
+                    <option value="4">Lurah</option>
+                    <option value="3">Sekretaris Lurah</option>
+                    <option value="2">Kasi</option>
+                    <option value="1">Operator</option>
                     <option value="0">Admin</option>
                 </select>
             </div>

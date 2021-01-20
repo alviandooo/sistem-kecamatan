@@ -16,12 +16,15 @@ class CreateDataTable extends Migration
         Schema::create('data', function (Blueprint $table) {
             $table->id();
             $table->string('nik');
-            $table->string('no_kk');
             $table->string('nama');
+            $table->string('bin')->nullable();
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->string('alamat');
-            $table->string('status');
+            $table->string('kewarganegaraan');
+            $table->string('jenis_kelamin');
+            $table->string('pekerjaan');
+            $table->string('status')->nullable();
             $table->string('agama');
             $table->timestamps();
         });

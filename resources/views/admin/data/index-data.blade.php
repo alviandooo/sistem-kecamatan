@@ -21,7 +21,6 @@
                     <th style="display:none"></th>
                     <th></th>
                     <th>NIK</th>
-                    <th>No. Kartu Keluarga</th>
                     <th>Nama</th>
                     <th>Agama</th>
                     <th>Status</th>
@@ -32,7 +31,6 @@
                     <th style="display:none"></th>
                     <th></th>
                     <th>NIK</th>
-                    <th>No. Kartu Keluarga</th>
                     <th>Nama</th>
                     <th>Agama</th>
                     <th>Status</th>
@@ -73,7 +71,6 @@
                     }
                 },
                 {data: 'nik',name:'nik'},
-                {data: 'no_kk',name:'no_kk'},
                 {data: 'nama',name:'nama'},
                 {data: 'agama',name:'agama',
                     render:function(a,b,c,d){
@@ -90,15 +87,7 @@
                         }
                     }
                 },
-                {data: 'status',name:'status', 
-                    render:function(a,b,c,d){
-                        if(c.status == 0){
-                            return 'Belum Menikah';
-                        }else{
-                            return 'Menikah';
-                        }
-                    }
-                },
+                {data: 'pekerjaan',name:'pekerjaan'},
             ] 
             
             
@@ -121,14 +110,15 @@
                 success :function(response) {
                     console.log(response)
                     $("#id-nik-edit").val(response.id);
-                    $("#nik-edit").val(response.nik);
-                    $("#kk-edit").val(response.no_kk);
-                    $("#nama-edit").val(response.nama);
-                    $("#tempat_lahir_edit").val(response.tempat_lahir);
-                    $("#tanggal_lahir_edit").val(response.tanggal_lahir);
-                    $("#alamat-edit").val(response.alamat);
-                    $("#agama-edit").val(response.agama);
-                    $("#status-edit").val(response.status);
+                    $("#edit-nik").val(response.nik);
+                    $("#edit-nama").val(response.nama);
+                    $("#edit-tempat_lahir").val(response.tempat_lahir);
+                    $("#edit-tanggal_lahir").val(response.tanggal_lahir);
+                    $("#edit-alamat").val(response.alamat);
+                    $("#edit-agama").val(response.agama);
+                    $("#edit-pekerjaan").val(response.pekerjaan);
+                    $("#edit-jenis_kelamin").val(response.jenis_kelamin);
+                    $("#edit-kewarganegaraan").val(response.kewarganegaraan);
 
                     $('#modal-edit-data').modal('show');
                     
@@ -144,11 +134,6 @@
                 }
             
             });
-            
-                // $("#id-pengajuan").val(tb.row($(this).parents('tr')).data().id);
-                // $("#nik-edit").val(tb.row($(this).parents('tr')).data().nik);
-                // $("#tanggal_pengajuan_edit").val(tb.row($(this).parents('tr')).data().tanggal_pengajuan);
-                // $("#jenis-pelayanan-edit").val(tb.row($(this).parents('tr')).data().jenis_pelayanan);
             
         });
 
@@ -198,7 +183,7 @@
                     })
 
                     $('#table-data').DataTable().ajax.reload();
-                    $('form :input').val('');
+                    $('#form-edit-data').reset();
                 },
                 error: function(e) {
                     Swal.fire({

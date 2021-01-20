@@ -57,11 +57,13 @@ class UsersController extends Controller
             if($request->jabatan == 0){
                 $jabatan = "Admin";
             }elseif($request->jabatan == 1){
-                $jabatan = "Staff Administrasi";
+                $jabatan = "Operator";
             }elseif($request->jabatan == 2){
-                $jabatan = "Sekretaris Camat";
-            }elseif ($request->jabatan == 3) {
-                $jabatan = "Kepala Camat";
+                $jabatan = "Kasi";
+            }elseif($request->jabatan == 3){
+                $jabatan = "Sekretaris Lurah";
+            }elseif ($request->jabatan == 4) {
+                $jabatan = "Lurah";
             }
             // dd($jabatan);
             
@@ -115,11 +117,13 @@ class UsersController extends Controller
             if($r->jabatan == 0){
                 $jabatan = "Admin";
             }elseif($r->jabatan == 1){
-                $jabatan = "Staff Administrasi";
+                $jabatan = "Operator";
             }elseif($r->jabatan == 2){
-                $jabatan = "Sekretaris Camat";
-            }elseif ($r->jabatan == 3) {
-                $jabatan = "Kepala Camat";
+                $jabatan = "Kasi";
+            }elseif($r->jabatan == 3){
+                $jabatan = "Sekretaris Lurah";
+            }elseif ($r->jabatan == 4) {
+                $jabatan = "Lurah";
             }
 
         $users = User::find($r->id);

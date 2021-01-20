@@ -27,25 +27,35 @@
             
             <div class="form-group">
                 <label for="jenis_pelayanan">Jenis Pelayanan :</label>
-                @if(Auth::user()->role == 2 or Auth::user()->role == 3)
+                @if(Auth::user()->role == 2 or Auth::user()->role == 3 or Auth::user()->role == 4)
                   <input type="text" class="form-control" id="jenis-pelayanan-edit" name="jenis_pelayanan_edit" readonly>
                 @else
                   <select name="jenis_pelayanan_edit" id="jenis-pelayanan-edit" class="form-control">
-                    <option selected value="0">Surat Menikah</option>
-                    <option value="1">Lainnya</option>
+                    <option selected >-- Pilih --</option>
+                    <option value="1">Surat keterangan Nikah</option>
+                    <option value="2">Surat Keterangan Tidak Mampu</option>
+                    <option value="3">Surat Keterangan Tidak Memiliki Rumah</option>
+                    <option value="4">Surat Menikah</option>
+                    <option value="5">Surat Kematian</option>
+                    <option value="6">Surat Keterangan Usaha</option>
+                    <option value="7">Surat KPR Rumah</option>
+                    <option value="8">Surat Izin Bangunan</option>
+                    <option value="9">Surat Pengantar SKCK</option>
+                    <option value="10">Surat Keramaian</option>
+                    <option value="0">Lainnya</option>
                 </select>
                 @endif
             </div>
 
       </div>
             <div class="modal-footer">
-                @if(Auth::user()->role == 2 or Auth::user()->role == 3)
-                  <button id="btn-approve-pengajuan" type="button" class="btn btn-primary">Approve</button>
-                  <button id="btn-tolak-pengajuan" type="button" class="btn btn-primary">Tolak</button>
+                @if(Auth::user()->role == 2 or Auth::user()->role == 3 or Auth::user()->role == 4)
+                  <button id="btn-approve-pengajuan" type="button" class="btn btn-success">Approve</button>
+                  <button id="btn-tolak-pengajuan" type="button" class="btn btn-warning">Tolak</button>
                 @endif
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                @if(Auth::user()->role == 1)
-                  <button id="btn-ubah-pengajuan" type="button" class="btn btn-primary">Simpan</button>
+                @if(Auth::user()->role == 1 or Auth::user()->role == 0)
+                  <button id="btn-ubah-pengajuan" type="button" class="btn btn-primary">Ubah</button>
                 @endif
             </div>
         </form>

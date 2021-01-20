@@ -53,16 +53,7 @@ class DataController extends Controller
      */
     public function store(Request $r)
     {
-        $d = new Data();
-        $d->nik = $r->nik;
-        $d->no_kk = $r->kk;
-        $d->nama = $r->nama;
-        $d->tempat_lahir = $r->tempat_lahir;
-        $d->tanggal_lahir = $r->tanggal_lahir;
-        $d->alamat = $r->alamat;
-        $d->status = $r->status;
-        $d->agama = $r->agama;
-        $d->save();
+        Data::create($r->all());
 
         return response()->json([
                 'status' => 'success',

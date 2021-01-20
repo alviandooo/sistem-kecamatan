@@ -78,7 +78,7 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Pengajuan</span></a>
             </li>
-            @if(Auth::user()->role == 1)
+            @if(Auth::user()->role == 1 or Auth::user()->role == 0)
             <li class="nav-item">
                 <a class="nav-link" href="{{route('users.index')}}">
                     <i class="fas fa-fw fa-chart-area"></i>

@@ -72,7 +72,7 @@
 
     <div class="card shadow mb-4">
     <div class="card-header py-3">
-        @if(Auth::user()->role == 1)
+        @if(Auth::user()->role == 1 or Auth::user()->role == 0)
             <button id="btn-add-pengajuan" class="btn btn-primary"><i class="bi bi-plus-square"></i></button>
         @endif
     </div>
@@ -155,15 +155,7 @@
                 {data: 'tanggal_pengajuan',name:'tanggal_pengajuan'},
                 {data: 'no_pengajuan',name:'no_pengajuan'},
                 {data: 'nik',name:'nik'},
-                {data: 'jenis_pelayanan',name:'jenis_pelayanan',
-                    render:function(a,b,c,d){
-                        if(c.jenis_pelayanan == 1){
-                            return 'Lainnya';
-                        }else if(c.jenis_pelayanan == 0){
-                            return 'Surat Menikah';
-                        }
-                    }
-                },
+                {data: 'jenis_pelayanan',name:'jenis_pelayanan'},
                 
             ] 
             
@@ -318,6 +310,11 @@
                 }
                 
             });
+        });
+
+        $('#btn-ubah-pengajuan').click(function () {
+            // function button ubah pengajuan
+            console.log("test");
         });
 
         $('#btn-add-pengajuan').click(function () {

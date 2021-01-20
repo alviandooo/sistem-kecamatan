@@ -1,7 +1,7 @@
 <!-- Modal Tambah Data-->
 
-<div style="" class="modal fade" id="modal-add-data" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div style="" class="modal fade bd-example-modal-lg" id="modal-add-data" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Form Tambah Data Penduduk</h5>
@@ -11,57 +11,72 @@
       </div>
       <div class="modal-body">
         <!-- Form tambah Data -->
-        <form method="post" action="" id="form-add-data">
+        <form method="post" class="form" action="" id="form-add-data">
             @csrf
-            <div class="form-group">
-                <label for="Nama">NIK :</label>
-                <input type="text" class="form-control" id="nik" name="nik" aria-describedby="nama" placeholder="NIK">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" class="form-control" name="nama" id="nama" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="nik">NIK</label>
+                    <input type="text" class="form-control" name="nik" id="nik" >
+                </div>
             </div>
-            <div class="form-group">
-                <label for="kk">No. Kartu Keluarga :</label>
-                <input type="text" class="form-control" id="kk" name="kk" placeholder="No. Kartu Keluarga">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="tempat lahir">Tempat Lahir</label>
+                    <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="tanggal_lahir">Tanggal Lahir</label>
+                    <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="Nama">Nama Lengkap :</label>
-                <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="jenis_kelamin">Jenis Kelamin</label>
+                    <select id="jenis_kelamin" name="jenis_kelamin" class="form-control">
+                        <option selected>--Pilih--</option>
+                        <option value="1">Laki-laki</option>
+                        <option value="2">Perempuan</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Kewarganegaraan">Kewarganegaraan</label>
+                    <input type="text" class="form-control" name="kewarganegaraan" id="kewarganegaraan" >
+                </div>
             </div>
-            <div class="form-group">
-                <label for="tempat-lahir">Tempal Lahir :</label>
-                <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Tempal Lahir">
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="agama">Agama</label>
+                    <select id="agama" name="agama" class="form-control">
+                    <option selected>--Pilih--</option>
+                    <option value="1">Islam</option>
+                    <option value="2">Kristen</option>
+                    <option value="3">Hindu</option>
+                    <option value="4">Budha</option>
+                    <option value="5">Konghucu</option>
+                    <option value="6">Lainnya</option>
+                </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="pekerjaan">Pekerjaan</label>
+                    <input type="text" class="form-control" name="pekerjaan" id="pekerjaan" >
+                </div>
             </div>
-            <div class="form-group">
-                <label for="tempat-lahir">Tanggal Lahir :</label>
-                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir">
-            </div>
+
             <div class="form-group">
                 <label for="alamat">Alamat :</label>
                 <textarea name="alamat" id="alamat" cols="30" class="form-control" rows="3"></textarea>
             </div>
             
-            <div class="form-group">
-                <label for="Status">Status :</label>
-                <select name="status" id="status" class="form-control">
-                    <option selected value="1">Menikah</option>
-                    <option value="0">Belum Menikah</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="Status">Agama :</label>
-                <select name="agama" id="agama" class="form-control">
-                    <option selected value="4">Budha</option>
-                    <option selected value="3">Hindu</option>
-                    <option selected value="2">Kristen</option>
-                    <option value="1">Islam</option>
-                    <option value="0">Lainnya</option>
-                </select>
-            </div>
-            
       </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="btn-save-data" type="button" class="btn btn-primary">Simpan</button>
-            </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="btn-save-data" type="button" class="btn btn-primary">Simpan</button>
+    </div>
         </form>
     </div>
   </div>

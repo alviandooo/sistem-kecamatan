@@ -25,7 +25,10 @@ class PengajuanController extends Controller
 
     public function data()
     {
-        $d = Pengajuan::all();
+        $d = DB::table('pengajuans')
+        ->leftjoin('pelayanan','pengajuans.jenis_pelayanan','=','pelayanan.id')
+        ->select('pengajuans.*','pelayanan.*')
+        ->get();
         return Datatables::of($d)->make(true);
     }
 

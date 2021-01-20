@@ -19,10 +19,9 @@
             <!-- Header -->
             <div class="col-md-9">
                 <center>
-                    <h6 style="font-size:10pt;">PEMERINTAH KOTA PALEMBANG <br> KECAMATAN TADIKA MESRA</h6>
-                    <h4 style="margin-top:-5px;">KANTOR KECAMATAN TADIKA MESRA</h4>
-                    <h6 style="font-size:9pt; margin-top:-10px;">Jl. Kol. H. Burlian, No.204 Kebun Bunga Sukarami Palembang </h6>
-
+                    <h6 style="font-size:12pt;">PEMERINTAH KOTA PALEMBANG <br> KECAMATAN KALIDONI</h6>
+                    <h4 style="margin-top:-5px;">KANTOR LURAH KALIDONI</h4>
+                    <h6 style="font-size:10pt; margin-top:-10px;">Jl. Letkol. H.M. Effendi, No.01 Rt. 34 Rw. 07 Palembang 30118</h6>
                 </center>
             </div>
         </div>

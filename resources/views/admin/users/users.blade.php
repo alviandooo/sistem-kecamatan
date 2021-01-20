@@ -11,9 +11,11 @@
 <div class="">
 
     <div class="card shadow mb-4">
+    @if(Auth::user()->role == 0)
     <div class="card-header py-3">
         <button id="btn-add-users" class="btn btn-primary"><i class="bi bi-plus-square"></i></button>
     </div>
+    @endif
     <div class="card-body">
     <div class="table-responsive">
         <table class="table table-bordered" id="table-users" width="100%">
@@ -145,6 +147,7 @@
 
                 $('#table-users').DataTable().ajax.reload()
                 $('#edit-password').val('');
+                $("#form-edit-users").reset();
             },
             error: function(e) {
                 Swal.fire({

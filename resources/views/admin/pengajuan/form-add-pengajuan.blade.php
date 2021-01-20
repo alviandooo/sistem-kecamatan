@@ -26,8 +26,18 @@
             <div class="form-group">
                 <label for="jenis_pelayanan">Jenis Pelayanan :</label>
                 <select name="jenis_pelayanan" id="jenis_pelayanan" class="form-control">
-                    <option selected value="0">Surat Menikah</option>
-                    <option value="1">Lainnya</option>
+                    <option selected >-- Pilih --</option>
+                    <option value="1">Surat keterangan Nikah</option>
+                    <option value="2">Surat Keterangan Tidak Mampu</option>
+                    <option value="3">Surat Keterangan Tidak Memiliki Rumah</option>
+                    <option value="4">Surat Menikah</option>
+                    <option value="5">Surat Kematian</option>
+                    <option value="6">Surat Keterangan Usaha</option>
+                    <option value="7">Surat KPR Rumah</option>
+                    <option value="8">Surat Izin Bangunan</option>
+                    <option value="9">Surat Pengantar SKCK</option>
+                    <option value="10">Surat Keramaian</option>
+                    <option value="0">Lainnya</option>
                 </select>
             </div>
 
