@@ -394,7 +394,6 @@
 
         $('#table-pengajuan tbody').on('click', '#btn-edit-pengajuan', function () {
             $('#modal-edit-pengajuan').modal('show');
-            console.log(tb.row($(this).parents('tr')).data().id);
             $("#id-pengajuan").val(tb.row($(this).parents('tr')).data().id);
             $("#nik-edit").val(tb.row($(this).parents('tr')).data().nik);
             $("#tanggal_pengajuan_edit").val(tb.row($(this).parents('tr')).data().tanggal_pengajuan);
@@ -436,7 +435,9 @@
                         confirmButtonText: 'OK'
                     })
 
-                    $('#table-pengajuan').DataTable().ajax.reload()
+                    $('#table-pengajuan').DataTable().ajax.reload();
+                    $("#form-edit-pengajuan").reset();
+
                 },
                 error: function(e) {
                     Swal.fire({
@@ -471,6 +472,8 @@
                     })
 
                     $('#table-pengajuan').DataTable().ajax.reload()
+                    $("#form-edit-pengajuan").reset();
+
                 },
                 error: function(e) {
                     Swal.fire({
@@ -486,7 +489,36 @@
 
         $('#btn-ubah-pengajuan').click(function () {
             // function button ubah pengajuan
-            console.log("test");
+            
+            $.ajax({
+                type: "POST",
+                url: "{{route('pengajuan.update')}}",
+                data: $("#form-edit-pengajuan").serialize(),
+                dataType: 'json',
+                success :function(response) {
+                    $('#modal-edit-pengajuan').modal('hide');
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Data berhasil diubah!',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+
+                    $('#table-pengajuan').DataTable().ajax.reload();
+                    $("#form-edit-pengajuan").reset();
+
+                },
+                error: function(e) {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Jenis Pelayanan tidak boleh kosong!',
+                        icon: 'error',
+                        confirmButtonText: 'Kembali'
+                    })
+                }
+                
+            });
+            
         });
 
         $('#btn-add-pengajuan').click(function () {
@@ -509,7 +541,8 @@
                 })
 
                 $('#table-pengajuan').DataTable().ajax.reload()
-                $('form :input').val('');
+                $("#form-add-pengajuan").reset();
+
             },
             error: function(e) {
                 Swal.fire({

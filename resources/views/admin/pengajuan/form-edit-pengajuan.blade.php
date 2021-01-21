@@ -14,23 +14,23 @@
         <form method="post" action="" id="form-edit-pengajuan">
             @csrf
             <div class="form-group">
-                <input type="hidden" class="form-control" id="id-pengajuan" name="id_pengajuan">
+                <input type="hidden" class="form-control" id="id-pengajuan" name="id">
                 <label for="Nama">NIK :</label><br>
                 <!-- <select style="width:100%;" name="nik" id="select2nik"></select> -->
-                <input type="text" class="form-control" id="nik-edit" name="nik_edit" readonly>
+                <input type="text" class="form-control" id="nik-edit" name="nik" readonly>
             </div>
             
             <div class="form-group">
                 <label for="tempat-pengajuan">Tanggal Pengajuan :</label>
-                <input type="date" class="form-control" id="tanggal_pengajuan_edit" name="tanggal_pengajuan_edit">
+                <input type="date" class="form-control" id="tanggal_pengajuan_edit" name="tanggal_pengajuan">
             </div>
             
             <div class="form-group">
                 <label for="jenis_pelayanan">Jenis Pelayanan :</label>
                 @if(Auth::user()->role == 2 or Auth::user()->role == 3 or Auth::user()->role == 4)
-                  <input type="text" class="form-control" id="jenis-pelayanan-edit" name="jenis_pelayanan_edit" readonly>
+                  <input type="text" class="form-control" id="jenis-pelayanan-edit" name="jenis_pelayanan" readonly>
                 @else
-                  <select name="jenis_pelayanan_edit" id="jenis-pelayanan-edit" class="form-control">
+                  <select name="jenis_pelayanan" id="jenis-pelayanan-edit" class="form-control" required>
                     <option selected >-- Pilih --</option>
                     <option value="1">Surat keterangan Nikah</option>
                     <option value="2">Surat Keterangan Tidak Mampu</option>

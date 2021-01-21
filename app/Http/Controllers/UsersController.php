@@ -149,7 +149,6 @@ class UsersController extends Controller
      */
     public function destroy(Request $r)
     {
-        // dd($r->all());
         User::destroy($r->id);
         return response()->json([
                 'status' => 'success',

@@ -140,6 +140,8 @@
 
                     $('#table-data').DataTable().ajax.reload();
                     $('form :input').val('');
+                    $("#form-add-data").reset();
+                    
                 },
                 error: function(e) {
                     Swal.fire({
@@ -170,6 +172,8 @@
 
                     $('#table-data').DataTable().ajax.reload();
                     $('#form-edit-data').reset();
+                    $("#form-edit-data").reset();
+
                 },
                 error: function(e) {
                     Swal.fire({
@@ -203,6 +207,8 @@
 
                     $('#table-data').DataTable().ajax.reload();
                     $('form :input').val('');
+                    $("#form-edit-data").reset();
+
                 },
                 error: function(e) {
                     Swal.fire({

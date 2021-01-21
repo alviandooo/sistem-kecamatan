@@ -126,7 +126,8 @@ class PengajuanController extends Controller
             $p->status_pengajuan = 0;
 
         }else{
-            // ubah data biasa
+            $p->tanggal_pengajuan = $r->tanggal_pengajuan;
+            $p->jenis_pelayanan = $r->jenis_pelayanan;
         }
 
         $p->save();
